@@ -1,5 +1,5 @@
-final int MENU_STATE = 0;
-final int GAME_STATE = 1;
+final int MENU_STATE  = 0;
+final int GAME_STATE  = 1;
 final int PAUSE_STATE = 2;
 final int VICTORY_STATE = 3;
 

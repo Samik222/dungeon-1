@@ -1,4 +1,6 @@
 final int POINTS_FOR_COIN = 1;
+// final int POINTS_FOR_GEMS = 10;
+// ...
 
 int playerX;
 int playerY;
@@ -42,12 +44,12 @@ void drawPlayer() {
   int pixelY = playerY * cellSize + centeringShiftY;
   
   if (playerState == PLAYER_WALKING_STATE) {
-   image(PandaImage, pixelX, pixelY, cellSize, cellSize);
+    playerSprite.draw(pixelX,pixelY, cellSize, cellSize);
   } else if (playerState == PLAYER_IDLING_STATE) {
-    image(playerState.image[0], pixelX, pixelY, cellSize, cellSize);
+    image(playerSprite.images[0], pixelX,pixelY, cellSize, cellSize);
   }
   
-  if (walkingFrames > 0) {
+  if (walkingFrames >  0) {
     walkingFrames--;
   } else {
     playerState = PLAYER_IDLING_STATE;

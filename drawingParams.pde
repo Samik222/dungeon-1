@@ -10,8 +10,8 @@ PFont mainFont;
 
 PImage wallImage;
 PImage doorImage;
-PImage coinImage;
-PImage PandaImage;
+Sprite coinSprite;
+Sprite playerSprite;
 
 void recalcDrawingParams() {
   cellSize = int(min(width / currentLevelWidth, height / currentLevelHeight) * 0.8);
@@ -29,6 +29,47 @@ void loadFonts() {
 void loadImages() {
   wallImage = loadImage("wall.png");
   doorImage = loadImage("door.png");
-  coinImage = loadImage("coin.png");
-  PandaImage = loadImage("Panda.png");
+  coinSprite = new Sprite("coin/coin_", 9, ".png");
+  playerSprite = new Sprite("player/player_", 9, ".png");
+}
+
+class Sprite {
+  PImage[] images;
+  int frame;
+  
+  int skip, _skip;
+  int time = -1;
+  
+  Sprite(String imagePrefix, int count, String extension) {
+    this(imagePrefix, count, extension, 3);
+  }
+  
+  Sprite(String imagePrefix, int count, String extension, int skip) {
+    images = new PImage[count];
+
+    for (int i = 0; i < count; i++) {
+      String fileName = imagePrefix + i + extension;
+      images[i] = loadImage(fileName);
+    }
+    
+    this.skip = skip;
+    _skip = skip;
+  }
+
+  void draw(float x, float y, float width, float height) {
+    if (time < 0 || time > 0) {
+      _skip--;
+      if (_skip < 0) {
+        _skip = skip;
+        frame = (frame + 1) % images.length;
+      }
+      if (time > 0) {
+        --time;
+      }
+      
+      image(images[frame], x, y, width, height);
+    } else {
+      image(images[0], x, y, width, height);
+    }
+  }
 }

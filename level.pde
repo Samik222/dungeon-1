@@ -43,7 +43,6 @@ void drawLevel() {
         case 'P':
           fill(#504F4F);
           rect(pixelX,pixelY, cellSize, cellSize);
-          image(PandaImage, pixelX,pixelY, cellSize, cellSize);
           break;
         case'E':
           rect(pixelX, pixelY, cellSize, cellSize);
@@ -52,7 +51,7 @@ void drawLevel() {
         case'*':
           fill(#504F4F);
           rect(pixelX, pixelY, cellSize, cellSize);
-          image(coinImage, pixelX, pixelY, cellSize, cellSize);
+          coinSprite.draw(pixelX, pixelY, cellSize, cellSize);
           break;          
       }
     }
