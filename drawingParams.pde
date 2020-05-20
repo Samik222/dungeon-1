@@ -11,7 +11,7 @@ PFont mainFont;
 PImage wallImage;
 PImage doorImage;
 Sprite coinSprite;
-Sprite playerSprite;
+Sprite PandaSprite;
 
 void recalcDrawingParams() {
   cellSize = int(min(width / currentLevelWidth, height / currentLevelHeight) * 0.8);
@@ -30,7 +30,7 @@ void loadImages() {
   wallImage = loadImage("wall.png");
   doorImage = loadImage("door.png");
   coinSprite = new Sprite("coin/coin_", 9, ".png");
-  playerSprite = new Sprite("player/player_", 9, ".png");
+  PandaSprite = new Sprite("Panda/Panda_", 7, ".png");
 }
 
 class Sprite {

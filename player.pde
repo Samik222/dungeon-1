@@ -44,9 +44,9 @@ void drawPlayer() {
   int pixelY = playerY * cellSize + centeringShiftY;
   
   if (playerState == PLAYER_WALKING_STATE) {
-    playerSprite.draw(pixelX,pixelY, cellSize, cellSize);
+    PandaSprite.draw(pixelX,pixelY, cellSize, cellSize);
   } else if (playerState == PLAYER_IDLING_STATE) {
-    image(playerSprite.images[0], pixelX,pixelY, cellSize, cellSize);
+    image(PandaSprite.images[0], pixelX,pixelY, cellSize, cellSize);
   }
   
   if (walkingFrames >  0) {
